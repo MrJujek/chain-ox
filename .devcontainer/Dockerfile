@@ -35,4 +35,5 @@ RUN curl -s https://raw.githubusercontent.com/dkomeza/tiny-git-helper/main/scrip
 SHELL ["/bin/bash", "--login", "-i", "-c"]
 RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 RUN source /root/.bashrc && nvm install --lts
+RUN source /root/.bashrc && npm install -g yarn
 SHELL ["/bin/bash", "--login", "-c"]
