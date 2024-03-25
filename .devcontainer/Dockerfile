@@ -30,4 +30,9 @@ RUN avm install latest
 
 RUN avm use latest
 
-RUN apt-get install -y nodejs npm
+RUN curl -s https://raw.githubusercontent.com/dkomeza/tiny-git-helper/main/scripts/install.sh | bash
+
+SHELL ["/bin/bash", "--login", "-i", "-c"]
+RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+RUN source /root/.bashrc && nvm install --lts
+SHELL ["/bin/bash", "--login", "-c"]
