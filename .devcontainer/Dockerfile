@@ -31,7 +31,7 @@ RUN source /root/.bashrc && nvm install --lts
 RUN source /root/.bashrc && npm install -g yarn
 SHELL ["/bin/bash", "--login", "-c"]
 
-# Install rust.
+# Install rust
 RUN curl "https://sh.rustup.rs" -sfo rustup.sh && \
     sh rustup.sh -y && \
     rustup component add rustfmt clippy
@@ -46,8 +46,6 @@ RUN cargo install --git https://github.com/coral-xyz/anchor --tag ${ANCHOR_CLI} 
 RUN cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
 RUN avm install latest
 RUN avm use latest
-
-RUN cargo update -p solana-program@1.18.8 --precise 1.18.1
 
 # Build a dummy program to bootstrap the BPF SDK (doing this speeds up builds)
 RUN mkdir -p /tmp && cd tmp && anchor init dummy && cd dummy && \

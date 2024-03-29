@@ -7,8 +7,7 @@
     "build": {
         // Path is relative to the devcontainer.json file.
         "dockerfile": "Dockerfile"
-    }
-
+    },
 
 	// Use 'mounts' to make the cargo cache persistent in a Docker Volume.
 	// "mounts": [
@@ -26,8 +25,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "rustc --version",
-
+	"postCreateCommand": "cd chain && cargo update -p solana-program --precise 1.18.1"
 	// Configure tool-specific properties.
 	// "customizations": {},
 
